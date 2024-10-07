@@ -81,9 +81,9 @@ pipeline{
                         # Define variables
                         ARTIFACTORY_URL="http://34.93.194.223:8082/artifactory"
                         REPO="libs-release-local"
-                        FILE_PATH="/var/lib/jenkins/.m2/repository/com/minikube/sample/kubernetes-configmap-reload/0.0.1-SNAPSHOT/*.jar"
+                        FILE_PATH="target/*.jar"
                         ARTIFACTORY_USER="admin"
-                        ARTIFACTORY_PASSWORD="Welcom@123"
+                        ARTIFACTORY_PASSWORD="Welcome@123"
 
                         # Use curl to upload the JAR file
                         curl -u $ARTIFACTORY_USER:$ARTIFACTORY_PASSWORD \

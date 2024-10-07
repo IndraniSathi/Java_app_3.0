@@ -81,7 +81,7 @@ pipeline{
                         # Define variables
                         ARTIFACTORY_URL="http://34.93.194.223:8082/artifactory"
                         REPO="libs-release-local"
-                        FILE_PATH="target/*.jar"
+                        FILE_PATH="/var/lib/jenkins/.m2/repository/com/minikube/sample/kubernetes-configmap-reload/0.0.1-SNAPSHOT/*.jar"
                         ARTIFACTORY_USER="admin"
                         ARTIFACTORY_PASSWORD="Welcome@123"
 

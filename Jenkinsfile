@@ -79,7 +79,7 @@ pipeline{
                 script {
                     sh '''
                         # Define variables
-                        ARTIFACTORY_URL="http://34.93.194.223:8082//artifactory"
+                        ARTIFACTORY_URL="http://34.93.194.223:8082/artifactory"
                         REPO="libs-release-local"
                         FILE_PATH="target/*.jar"
                         ARTIFACTORY_USER="admin"
@@ -88,7 +88,7 @@ pipeline{
                         # Use curl to upload the JAR file
                         curl -u $ARTIFACTORY_USER:$ARTIFACTORY_PASSWORD \
                              -T $FILE_PATH \
-                             "$ARTIFACTORY_URL/$REPO/$TARGET_PATH"
+                             "$ARTIFACTORY_URL/$REPO"
                     '''
                 }
             }

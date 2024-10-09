@@ -103,7 +103,7 @@ pipeline{
                         sh """
                         export TRIVY_USERNAME='IndraniSathi'
                         export TRIVY_PASSWORD='${GITHUB_PAT}'
-                        trivy image --severity HIGH,CRITICAL --exit-code 1 --quiet ${params.ImageName}:${params.ImageTag}
+                        trivy image --severity HIGH,CRITICAL --exit-code 1 --quiet ${params.ImageName}:latest
                         """
                     }
                 }

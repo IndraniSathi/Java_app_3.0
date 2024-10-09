@@ -93,21 +93,13 @@ pipeline{
                }
             }
         }
-         stage('Docker Image Scan: trivy') {
-            when { expression { params.action == 'create' } }
-            steps {
-                script {
-                    // Use Jenkins credentials to retrieve the GitHub PAT
-                    withCredentials([string(credentialsId: 'github-pat', variable: 'GITHUB_PAT')]) {
-                        // Run the Trivy scan with authentication to avoid rate limits
-                        sh """
-                        export TRIVY_DISABLE_VEX_NOTICE=true
-                        export TRIVY_USERNAME="IndraniSathi"
-                        export TRIVY_PASSWORD="$GITHUB_PAT"
-                        trivy image --severity HIGH,CRITICAL --exit-code 1 --quiet ${params.DockerHubUser}/${params.ImageName}:latest
-                        """
-                    }
-                }
+         stage('Docker Image Scan: trivy '){
+         when { expression {  params.action == 'create' } }
+            steps{
+               script{
+                   
+                   dockerImageScan("${params.ImageName}","${params.ImageTag}","${params.DockerHubUser}")
+               }
             }
         }
         stage('Docker Image Push : DockerHub '){
